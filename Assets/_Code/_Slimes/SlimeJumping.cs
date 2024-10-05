@@ -17,4 +17,9 @@ public class SlimeJumping : BaseSlime
             return false;
         }
     }
+
+    public override bool CanShootHost()
+    {
+        return true;
+    }
 }

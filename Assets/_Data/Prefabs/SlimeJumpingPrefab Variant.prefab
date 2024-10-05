@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeJumpingPrefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3139286408330596153, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4430540483374627916, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
       propertyPath: myDefaultBrain
       value: 
@@ -78,9 +82,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9101771670606755669, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+    - {fileID: 4430540483374627916, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1929350476264896914, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 57950111211910182}
     - targetCorrespondingSourceObject: {fileID: 1929350476264896914, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
       insertIndex: 2
       addedObject: {fileID: 3620654537121235020}
@@ -90,6 +98,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1929350476264896914, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
   m_PrefabInstance: {fileID: 5445272362163906148}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &57950111211910182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861171400743051254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898abbcecb4be490c8a656922d641bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 6917953473032612189}
+  mainCollider: {fileID: 6554436737027787810}
+  groundedContactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  jumpSpeed: 10
+  slowMoveSpeed: 2
+  fastMoveSpeed: 10
+  myDefaultBrain: {fileID: 3620654537121235020}
+  patrolContactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  hostShootSpeed: 17
 --- !u!114 &3620654537121235020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,3 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8858056ed8ae64185894fe9a625958cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &6554436737027787810 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1254102003542911558, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+  m_PrefabInstance: {fileID: 5445272362163906148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6917953473032612189 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3139286408330596153, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+  m_PrefabInstance: {fileID: 5445272362163906148}
+  m_PrefabAsset: {fileID: 0}

@@ -11,5 +11,10 @@ public class PlayerInputBrain : BaseBrain
         {
             _mySlime.ApplyYMovement(yVelocityFromInput);
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) && _mySlime.CanShootHost())
+        {
+            _mySlime.TryShootHost();
+        }
     }
 }

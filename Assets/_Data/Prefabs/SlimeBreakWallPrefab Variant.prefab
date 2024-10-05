@@ -21,6 +21,10 @@ PrefabInstance:
       value: SlimeBreakWallPrefab Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3139286408330596153, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
+      propertyPath: m_LinearDrag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139286408330596153, guid: e814dc19c577346b9a9effa1fbac7878, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -146,7 +150,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   hostShootSpeed: 17
   dashDistance: 2
-  dashDuration: 0.2
+  dashDuration: 0.1
   freezeAfterDashDuration: 0.7
   cooldownAfterDash: 0.7
 --- !u!114 &6189815978798815732

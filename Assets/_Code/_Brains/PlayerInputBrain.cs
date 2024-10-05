@@ -17,4 +17,9 @@ public class PlayerInputBrain : BaseBrain
             _mySlime.TryShootHost();
         }
     }
+
+    public override bool IsControlledByPlayer()
+    {
+        return true;
+    }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SlimeJumping : BaseSlime
 {
+    public SlimeBreakWall slimeBreakWallPrefab;
+    
     public override bool GetYVelocityFromInput(out float yVelocityFromInput)
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -21,5 +23,21 @@ public class SlimeJumping : BaseSlime
     public override bool CanShootHost()
     {
         return true;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (_myCurrentBrain.IsControlledByPlayer())
+        {
+            if (other.gameObject.TryGetComponent(out SlimeJumping slimeJumping))
+            {
+                SlimeBreakWall newBigSlime = Instantiate(slimeBreakWallPrefab);
+                newBigSlime.SetNonHostSlime(slimeJumping);
+                newBigSlime.transform.position = (transform.position + other.transform.position) / 2f;
+                TakeOverOtherSlime(newBigSlime);
+                gameObject.SetActive(false);
+                slimeJumping.gameObject.SetActive(false);
+            }
+        }
     }
 }

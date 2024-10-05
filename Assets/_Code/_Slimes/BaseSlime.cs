@@ -19,11 +19,14 @@ public abstract class BaseSlime : MonoBehaviour
     protected BaseBrain _myCurrentBrain;
     private float _currentDirection = 1f;
     private BaseSlime _currentHost;
+    protected BaseSlime _nonHostSlime;
 
     protected virtual void Start()
     {
-        _myCurrentBrain = myDefaultBrain;
-        _myCurrentBrain.SetSlime(this);
+        if (_myCurrentBrain == null) // if it's instantiated at runtime and gets its brain set from another script, this will not be null :)
+        {
+            SetBrain(myDefaultBrain);
+        }
     }
 
     void Update()
@@ -91,12 +94,13 @@ public abstract class BaseSlime : MonoBehaviour
         StartCoroutine(_TemporaryCollisionIgnoreCoroutine(mainCollider, _currentHost.mainCollider));
         _currentHost.transform.position = transform.position;
         _currentHost.gameObject.SetActive(true);
+        if (_nonHostSlime != null) _currentHost.StartCoroutine(_TemporaryCollisionIgnoreCoroutine(_nonHostSlime.mainCollider, _currentHost.mainCollider));
         _currentHost.ApplyYMovement(hostShootSpeed);
         ReleaseControlToHostSlime();
 
     }
 
-    private IEnumerator _TemporaryCollisionIgnoreCoroutine(Collider2D colliderA, Collider2D colliderB)
+    public IEnumerator _TemporaryCollisionIgnoreCoroutine(Collider2D colliderA, Collider2D colliderB)
     {
         Physics2D.IgnoreCollision(colliderA, colliderB);
         yield return new WaitForSeconds(0.4f);

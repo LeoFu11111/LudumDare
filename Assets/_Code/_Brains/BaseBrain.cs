@@ -12,4 +12,9 @@ public abstract class BaseBrain : MonoBehaviour
     }
     
     public abstract void UpdateBrain(float deltaTime);
+
+    public virtual bool IsControlledByPlayer()
+    {
+        return false;
+    }
 }

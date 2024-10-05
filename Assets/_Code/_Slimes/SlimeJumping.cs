@@ -47,7 +47,7 @@ public class SlimeJumping : BaseSlime
     {
         if (CanShootHost())
         {
-            TryShootHost();
+            TryShootHost(false);
         }
     }
     
@@ -55,6 +55,6 @@ public class SlimeJumping : BaseSlime
     {
         base.HandleSpikes(spikes);
         
-        TryShootHost();
+        TryShootHost(true);
     }
 }

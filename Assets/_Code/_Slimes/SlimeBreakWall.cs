@@ -24,10 +24,18 @@ public class SlimeBreakWall : BaseSlime
         }
     }
 
-    public override void TryShootHost()
+    public override void TryShootHost(bool shouldKillOldSlime)
     {
-        base.TryShootHost();
-        ReactivateNonHostSlime();
+        base.TryShootHost(shouldKillOldSlime);
+        if (shouldKillOldSlime)
+        {
+            if (_nonHostSlime != null) Destroy(_nonHostSlime.gameObject);
+        }
+        else
+        {
+            ReactivateNonHostSlime();
+        }
+
         Destroy(gameObject);
     }
 
@@ -46,7 +54,7 @@ public class SlimeBreakWall : BaseSlime
     {
         base.HandleSpikes(spikes);
         
-        TryShootHost();
+        TryShootHost(true);
     }
 
     public override void HandleAbilityButtonPressed()

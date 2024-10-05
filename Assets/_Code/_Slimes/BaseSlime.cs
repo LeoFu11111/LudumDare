@@ -96,7 +96,7 @@ public abstract class BaseSlime : MonoBehaviour
         return false;
     }
 
-    public virtual void TryShootHost()
+    public virtual void TryShootHost(bool shouldKillOldSlime)
     {
         Debug.Log("trying to shoot host");
         StartCoroutine(_TemporaryCollisionIgnoreCoroutine(mainCollider, _currentHost.mainCollider));
@@ -105,7 +105,10 @@ public abstract class BaseSlime : MonoBehaviour
         if (_nonHostSlime != null) _currentHost.StartCoroutine(_TemporaryCollisionIgnoreCoroutine(_nonHostSlime.mainCollider, _currentHost.mainCollider));
         _currentHost.ApplyYMovement(hostShootSpeed);
         ReleaseControlToHostSlime();
-
+        if (shouldKillOldSlime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public IEnumerator _TemporaryCollisionIgnoreCoroutine(Collider2D colliderA, Collider2D colliderB)

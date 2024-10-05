@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class SlimeBreakWall : BaseSlime
 {
-    public override bool CanShootHost()
-    {
-        return true;
-    }
-
     public override void TryShootHost()
     {
         base.TryShootHost();
@@ -25,5 +20,12 @@ public class SlimeBreakWall : BaseSlime
     {
         _nonHostSlime.transform.position = transform.position;
         _nonHostSlime.gameObject.SetActive(true);
+    }
+
+    protected override void HandleSpikes(Spikes spikes)
+    {
+        base.HandleSpikes(spikes);
+        
+        TryShootHost();
     }
 }

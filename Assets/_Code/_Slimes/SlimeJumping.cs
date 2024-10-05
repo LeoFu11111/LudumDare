@@ -25,8 +25,10 @@ public class SlimeJumping : BaseSlime
         return true;
     }
     
-    private void OnCollisionEnter2D(Collision2D other)
+    protected override void OnCollisionEnter2D(Collision2D other)
     {
+        base.OnCollisionEnter2D(other);
+        
         if (_myCurrentBrain.IsControlledByPlayer())
         {
             if (other.gameObject.TryGetComponent(out SlimeJumping slimeJumping))

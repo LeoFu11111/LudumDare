@@ -136,4 +136,27 @@ public abstract class BaseSlime : MonoBehaviour
         ResetToDefaultBrain();
         ClearHost();
     }
+
+    protected virtual void OnCollisionEnter2D(Collision2D other)
+    {
+
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Spikes spikes))
+        {
+            HandleSpikes(spikes);
+        }
+    }
+
+    protected virtual void HandleSpikes(Spikes spikes)
+    {
+        Debug.Log($"{name} touched spikes");
+
+        if (!_myCurrentBrain.IsControlledByPlayer())
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -144,7 +144,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  hostShootSpeed: 10
+  hostShootSpeed: 17
 --- !u!114 &6189815978798815732
 MonoBehaviour:
   m_ObjectHideFlags: 0

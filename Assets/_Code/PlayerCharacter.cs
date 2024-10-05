@@ -7,16 +7,22 @@ public class PlayerCharacter : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public ContactFilter2D groundedContactFilter;
     public float jumpSpeed;
+    public float moveSpeed;
 
     private List<RaycastHit2D> _raycastHits = new();
     void Update()
     {
+        Vector2 vel = myRigidbody.velocity;
+        vel.x = Input.GetAxis("Horizontal") * moveSpeed;
+        
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            Vector2 vel = myRigidbody.velocity;
+
             vel.y = jumpSpeed;
-            myRigidbody.velocity = vel;
+
         }
+        
+        myRigidbody.velocity = vel;
     }
 
     public bool IsGrounded()

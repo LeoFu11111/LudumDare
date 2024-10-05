@@ -175,4 +175,9 @@ public abstract class BaseSlime : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public bool IsControlledByPlayer()
+    {
+        return _myCurrentBrain.IsControlledByPlayer();
+    }
 }

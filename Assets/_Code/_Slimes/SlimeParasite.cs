@@ -25,4 +25,11 @@ public class SlimeParasite : BaseSlime
             gameObject.SetActive(false);
         }
     }
+    
+    protected override void HandleSpikes(Spikes spikes)
+    {
+        base.HandleSpikes(spikes);
+        
+        Debug.Log("uh oh! player died!");
+    }
 }

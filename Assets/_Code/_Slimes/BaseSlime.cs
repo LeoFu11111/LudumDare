@@ -155,7 +155,7 @@ public abstract class BaseSlime : MonoBehaviour
         
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerStay2D(Collider2D other)
     {
         if (other.TryGetComponent(out Spikes spikes))
         {

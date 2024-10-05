@@ -50,4 +50,11 @@ public class SlimeJumping : BaseSlime
             TryShootHost();
         }
     }
+    
+    protected override void HandleSpikes(Spikes spikes)
+    {
+        base.HandleSpikes(spikes);
+        
+        TryShootHost();
+    }
 }

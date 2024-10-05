@@ -7,7 +7,7 @@ public abstract class BaseBrain : MonoBehaviour
     protected BaseSlime _mySlime;
     public BaseSlime MySlime => _mySlime;
 
-    public void SetSlime(BaseSlime mySlime)
+    public virtual void SetSlime(BaseSlime mySlime)
     {
         _mySlime = mySlime;
     }

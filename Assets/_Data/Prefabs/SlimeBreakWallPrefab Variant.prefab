@@ -145,6 +145,10 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   hostShootSpeed: 17
+  dashDistance: 2
+  dashDuration: 0.2
+  freezeAfterDashDuration: 0.7
+  cooldownAfterDash: 0.7
 --- !u!114 &6189815978798815732
 MonoBehaviour:
   m_ObjectHideFlags: 0

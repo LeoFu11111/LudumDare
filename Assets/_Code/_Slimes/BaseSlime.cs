@@ -29,11 +29,14 @@ public abstract class BaseSlime : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         _myCurrentBrain.UpdateBrain(Time.deltaTime);
+    }
+    
+    public virtual void HandleAbilityButtonPressed()
+    {
         
-
     }
 
     public virtual bool GetYVelocityFromInput(out float yVelocityFromInput)
@@ -56,6 +59,11 @@ public abstract class BaseSlime : MonoBehaviour
     public void TurnAround()
     {
         _currentDirection *= -1f;
+    }
+
+    public void SetCurrentDirection(float direction)
+    {
+        _currentDirection = Mathf.Sign(direction);
     }
 
     public void ApplyXMovement(float xSpeed)
@@ -140,6 +148,11 @@ public abstract class BaseSlime : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D other)
     {
 
+    }
+
+    protected virtual void OnCollisionStay2D(Collision2D other)
+    {
+        
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

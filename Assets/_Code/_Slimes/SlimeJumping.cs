@@ -42,4 +42,12 @@ public class SlimeJumping : BaseSlime
             }
         }
     }
+
+    public override void HandleAbilityButtonPressed()
+    {
+        if (CanShootHost())
+        {
+            TryShootHost();
+        }
+    }
 }

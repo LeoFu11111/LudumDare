@@ -95,7 +95,11 @@ public class Ferr2DT_SceneOverlay {
 			EditorGUILayout.Space();
 			EditorGUILayout.LabelField("\u2022 CLICK+DRAG to select multiple", HelpLabelStyle);
 			EditorGUILayout.LabelField("\u2022 SHIFT to add", HelpLabelStyle);
-			EditorGUILayout.LabelField("\u2022 ALT to delete or reset", HelpLabelStyle);
+			// optionally, change the label
+			// file: Ferr/2DTerrain/Editor/Ferr2DT_SceneOverlay.cs, line 98
+			// before: EditorGUILayout.LabelField("\u2022 ALT to delete or reset", HelpLabelStyle);
+			// now:
+			EditorGUILayout.LabelField("\u2022 CTRL+SHIFT to delete or reset", HelpLabelStyle);
 			EditorGUILayout.LabelField("\u2022 C to change control point mode", HelpLabelStyle);
 		}
 		Handles.EndGUI();

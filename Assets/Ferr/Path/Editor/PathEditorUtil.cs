@@ -108,7 +108,11 @@ namespace Ferr {
 				_vMode = false;
 				Event.current.Use();
 			}
-			bool deleteMode = Event.current.alt;
+
+			// file: Ferr/Path/EditorPathEditorUtil.cs, line 111
+			// before: bool deleteMode = Event.current.alt;
+			// now:
+			bool deleteMode = Event.current.shift && Event.current.control;
 			
 			// draw all the curve and handle lines
 			if (Event.current.type == EventType.Repaint)

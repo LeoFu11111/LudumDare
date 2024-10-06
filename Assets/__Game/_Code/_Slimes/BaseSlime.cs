@@ -198,12 +198,11 @@ public abstract class BaseSlime : MonoBehaviour
 
     private BaseSlime FindTopLevelHost()
     {
-        BaseSlime topLevelHost = _currentHost;
+        BaseSlime topLevelHost = _currentHost; // current host can be null if you are parasite!
         while (topLevelHost != null && topLevelHost._currentHost != null)
         {
             topLevelHost = topLevelHost._currentHost;
         }
-        Debug.Log($"determined top level host to be {topLevelHost.name}");
         return topLevelHost;
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cfe511f5ae84c24e82fbf88db7e24ae, type: 3}
-  m_Name: Terrain Material
+  m_Name: BricksMaterial
   m_EditorClassIdentifier: 
   _fillMaterial: {fileID: 2100000, guid: ea54a9cccf2cb4847922999cc2265f8b, type: 2}
   _edgeMaterial: {fileID: 2100000, guid: 6a137a711dab1dd4c9609c5b44c38f5a, type: 2}

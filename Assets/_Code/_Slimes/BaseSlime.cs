@@ -101,6 +101,7 @@ public abstract class BaseSlime : MonoBehaviour
         Debug.Log("trying to shoot host");
         StartCoroutine(_TemporaryCollisionIgnoreCoroutine(mainCollider, _currentHost.mainCollider));
         if (_nonHostSlime != null) _currentHost.StartCoroutine(_TemporaryCollisionIgnoreCoroutine(_nonHostSlime.mainCollider, _currentHost.mainCollider));
+        _currentHost.gameObject.SetActive(true);
         _currentHost.ApplyYMovement(hostShootSpeed);
         ReleaseControlToHostSlime();
         if (shouldKillOldSlime)

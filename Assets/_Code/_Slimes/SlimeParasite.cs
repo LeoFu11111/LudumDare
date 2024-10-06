@@ -13,6 +13,12 @@ public class SlimeParasite : BaseSlime
             myDefaultBrain = Instantiate(playerInputBrainPrefab);
         }
         base.Start();
+
+        LevelCheckpoint lastSavedCheckpoint = GameManager.S.GetLastSavedCheckpoint();
+        if (lastSavedCheckpoint != null)
+        {
+            lastSavedCheckpoint.RespawnFromCheckpoint(this);
+        }
     }
 
     protected override void OnCollisionEnter2D(Collision2D other)
@@ -31,5 +37,6 @@ public class SlimeParasite : BaseSlime
         base.HandleSpikes(spikes);
         
         Debug.Log("uh oh! player died!");
+        GameManager.S.PlayerDies(this);
     }
 }

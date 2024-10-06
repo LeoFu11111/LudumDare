@@ -19,7 +19,7 @@ public class LevelCheckpoint : MonoBehaviour
     private GameObject _exitWall;
     private bool _checkpointActivated;
 
-    private void Start()
+    private void Awake()
     {
         _entranceWall = checkpointDirection == CheckpointDirection.LeftToRight ? leftWall : rightWall;
         _exitWall = checkpointDirection == CheckpointDirection.LeftToRight ? rightWall : leftWall;
@@ -44,7 +44,16 @@ public class LevelCheckpoint : MonoBehaviour
                 _entranceWall.transform.DOScaleY(1f, 0.2f);
 
                 // [] set as last activate checkpoint in case of death (index-based)
+                GameManager.S.SaveCheckpoint(this);
             }
         }
+    }
+
+    public void RespawnFromCheckpoint(BaseSlime slime)
+    {
+        slime.transform.position = transform.position;
+        _checkpointActivated = true;
+        _entranceWall.transform.localScale = new Vector3(1f, 1f, 1f);
+        _exitWall.transform.DOScaleY(0f, 2.4f);
     }
 }

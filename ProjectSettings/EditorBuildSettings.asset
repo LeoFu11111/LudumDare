@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Archived/OldSplittingScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/_Data/Scenes/MainScene.unity
+    guid: 3133e7b3856c64d388b2148ce78ad561
   m_configObjects: {}

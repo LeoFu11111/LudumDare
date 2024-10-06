@@ -100,8 +100,6 @@ public abstract class BaseSlime : MonoBehaviour
     {
         Debug.Log("trying to shoot host");
         StartCoroutine(_TemporaryCollisionIgnoreCoroutine(mainCollider, _currentHost.mainCollider));
-        _currentHost.transform.position = transform.position;
-        _currentHost.gameObject.SetActive(true);
         if (_nonHostSlime != null) _currentHost.StartCoroutine(_TemporaryCollisionIgnoreCoroutine(_nonHostSlime.mainCollider, _currentHost.mainCollider));
         _currentHost.ApplyYMovement(hostShootSpeed);
         ReleaseControlToHostSlime();
@@ -143,6 +141,8 @@ public abstract class BaseSlime : MonoBehaviour
     public void ReleaseControlToHostSlime()
     {
         Debug.Log($"{name} releasing control to {_currentHost.name}");
+        _currentHost.transform.position = transform.position;
+        _currentHost.gameObject.SetActive(true);
         _currentHost.SetBrain(_myCurrentBrain);
         ResetToDefaultBrain();
         ClearHost();
@@ -179,5 +179,30 @@ public abstract class BaseSlime : MonoBehaviour
     public bool IsControlledByPlayer()
     {
         return _myCurrentBrain.IsControlledByPlayer();
+    }
+
+    public void ForceRevertToParasite()
+    {
+        _currentHost = FindTopLevelHost();
+        if (_currentHost != null)
+        {
+            ReleaseControlToHostSlime();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log($"no reverting to parasite because i am already parasite!");
+        }
+    }
+
+    private BaseSlime FindTopLevelHost()
+    {
+        BaseSlime topLevelHost = _currentHost;
+        while (topLevelHost != null && topLevelHost._currentHost != null)
+        {
+            topLevelHost = topLevelHost._currentHost;
+        }
+        Debug.Log($"determined top level host to be {topLevelHost.name}");
+        return topLevelHost;
     }
 }

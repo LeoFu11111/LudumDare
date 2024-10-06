@@ -10,6 +10,7 @@ public class SlimeJumping : BaseSlime
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            GameManager.S.audioManager.PlayJumpSound();
             yVelocityFromInput = jumpSpeed;
             return true;
         }
@@ -33,6 +34,7 @@ public class SlimeJumping : BaseSlime
         {
             if (other.gameObject.TryGetComponent(out SlimeJumping slimeJumping))
             {
+                GameManager.S.audioManager.PlayJoinSlimeSound();
                 SlimeBreakWall newBigSlime = Instantiate(slimeBreakWallPrefab);
                 newBigSlime.SetNonHostSlime(slimeJumping);
                 newBigSlime.transform.position = (transform.position + other.transform.position) / 2f;
@@ -47,6 +49,7 @@ public class SlimeJumping : BaseSlime
     {
         if (CanShootHost())
         {
+            GameManager.S.audioManager.PlayShootSound();
             TryShootHost(false);
         }
     }

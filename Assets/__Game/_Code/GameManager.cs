@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public AudioManager audioManager;
+    
     private int _lastSavedCheckpointIndex = -1;
 
     public void SaveCheckpoint(LevelCheckpoint checkpoint)

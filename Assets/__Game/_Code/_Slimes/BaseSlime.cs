@@ -169,6 +169,7 @@ public abstract class BaseSlime : MonoBehaviour
 
     protected virtual void HandleSpikes(Spikes spikes)
     {
+        GameManager.S.audioManager.PlaySpikesSound();
         Debug.Log($"{name} touched spikes");
 
         if (!_myCurrentBrain.IsControlledByPlayer())

@@ -27,6 +27,7 @@ public class SlimeParasite : BaseSlime
 
         if (other.gameObject.TryGetComponent(out SlimeJumping slimeJumping))
         {
+            GameManager.S.audioManager.PlayJoinSlimeSound();
             TakeOverOtherSlime(slimeJumping);
             gameObject.SetActive(false);
         }

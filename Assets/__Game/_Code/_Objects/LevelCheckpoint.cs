@@ -36,6 +36,8 @@ public class LevelCheckpoint : MonoBehaviour
         {
             if (slime.IsControlledByPlayer())
             {
+                _checkpointActivated = true;
+                
                 // [x] force slime to become parasite and kill any resulting slimes
                 slime.ForceRevertToParasite();
                 

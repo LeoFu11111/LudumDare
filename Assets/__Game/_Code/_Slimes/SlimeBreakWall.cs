@@ -72,6 +72,7 @@ public class SlimeBreakWall : BaseSlime
 
     private IEnumerator _DashCoroutine()
     {
+        GameManager.S.audioManager.PlayDashSound();
         _dashing = true;
         PlayerInputBrain playerInput = _myCurrentBrain as PlayerInputBrain;
         if (playerInput != null) playerInput.SetInputPaused(true);
@@ -101,6 +102,7 @@ public class SlimeBreakWall : BaseSlime
             if (other.collider.TryGetComponent(out BreakableWall breakableWall))
             {
                 Debug.Log("destroy it!");
+                GameManager.S.audioManager.PlayBreakWallSound();
                 Destroy(breakableWall.gameObject);
             }
         }
